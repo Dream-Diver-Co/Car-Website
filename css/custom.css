@@ -1,0 +1,48 @@
+
+
+
+.fixed-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: white;
+}
+.header-logo-mt{
+    margin-top: 100px;
+}
+
+.modal-content{
+    margin-top: 110px;
+}
+.modal-pd{
+    padding: 0% !important;
+}
+.modal-title{
+
+    font-weight: bolder;
+}
+ .grand-total{
+    text-align: center;
+    font-weight: bolder;
+}
+.view-btn{
+    height: 50px;
+    width: 100px;
+    background-color: #009dff !important;
+    padding: 10px !important;
+    font-size: small;
+    font-weight: 900;
+}
+.add-btn{
+    height: 50px;
+    width: 100px;
+    background-color: rgb(62, 245, 141) !important;
+    padding: 10px !important;
+    font-size: small;
+    font-weight: 900;
+}
+.header-logo{
+    width: 40px;
+}

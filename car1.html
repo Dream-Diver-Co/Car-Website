@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Listings</title>
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+        <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+        <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+        <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+        <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="path/to/font-awesome.css"> <!-- Add appropriate path -->
+    <link rel="stylesheet" href="path/to/owl.carousel.css"> <!-- Add appropriate path -->
+    <link rel="stylesheet" href="path/to/owl.theme.default.css"> <!-- Add appropriate path -->
+    <link rel="stylesheet" href="path/to/your-styles.css"> <!-- Add your CSS file -->
+    <style>
+        /* Add necessary CSS */
+    </style>
+</head>
+<body>
+<section class="car spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="car__sidebar">
+                    <div class="car__search">
+                        <h5>Car Search</h5>
+                        <form id="carSearchForm">
+                            <input type="text" id="carSearchInput" placeholder="Search...">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="car__filter">
+                        <h5>Car Filter</h5>
+                        <form id="carFilterForm">
+                            <select id="brandFilter">
+                                <option data-display="Brand">Select Brand</option>
+                                <option value="Acura">Acura</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Bentley">Bentley</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Bugatti">Bugatti</option>
+                            </select>
+                            <select id="modelFilter">
+                                <option data-display="Model">Select Model</option>
+                                <option value="Q3">Q3</option>
+                                <option value="A4">A4</option>
+                                <option value="AVENTADOR">AVENTADOR</option>
+                            </select>
+                            <select id="bodyStyleFilter">
+                                <option value="">Body Style</option>
+                                <option value="Option 1">Option 1</option>
+                                <option value="Option 2">Option 2</option>
+                            </select>
+                            <select id="conditionFilter">
+                                <option value="">Condition</option>
+                                <option value="First Hand">First Hand</option>
+                                <option value="Second Hand">Second Hand</option>
+                            </select>
+                            <select id="transmissionFilter">
+                                <option value="">Transmission</option>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
+                            <select id="mileageFilter">
+                                <option value="">Mileage</option>
+                                <option value="27">27</option>
+                                <option value="20">20</option>
+                                <option value="15">15</option>
+                                <option value="10">10</option>
+                            </select>
+                            <select id="engineFilter">
+                                <option value="">Engine</option>
+                                <option value="BS3">BS3</option>
+                                <option value="BS4">BS4</option>
+                                <option value="BS5">BS5</option>
+                                <option value="BS6">BS6</option>
+                            </select>
+                            <select id="colorFilter">
+                                <option value="">Colors</option>
+                                <option value="Red">Red</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Black">Black</option>
+                                <option value="Yellow">Yellow</option>
+                            </select>
+                            <div class="filter-price">
+                                <p>Price:</p>
+                                <div class="price-range-wrap">
+                                    <div id="filter-price-range" class="filter-price-range"></div>
+                                    <div class="range-slider">
+                                        <div class="price-input">
+                                            <input type="text" id="filterAmount">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car__filter__btn">
+                                <button type="button" id="resetFilterBtn" class="site-btn">Reset Filter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="car__filter__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="car__filter__option__item">
+                                <h6>Show On Page</h6>
+                                <select id="showOnPage">
+                                    <option value="9">9 Car</option>
+                                    <option value="15">15 Car</option>
+                                    <option value="20">20 Car</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="car__filter__option__item car__filter__option__item--right">
+                                <h6>Sort By</h6>
+                                <select id="sortBy">
+                                    <option value="price-high">Price: Highest First</option>
+                                    <option value="price-low">Price: Lowest First</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="carList">
+                    <!-- Car Items (Template) -->
+                    <div class="col-lg-4 col-md-4 car-item" data-brand="Porsche" data-model="Cayenne" data-body-style="SUV" data-condition="First Hand" data-transmission="Auto" data-mileage="35000" data-engine="BS6" data-color="Red" data-price="218" data-year="2016">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="img/cars/car-1.jpg" alt="">
+                                <img src="img/cars/car-8.jpg" alt="">
+                                <img src="img/cars/car-6.jpg" alt="">
+                                <img src="img/cars/car-3.jpg" alt="">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2016</div>
+                                    <h5><a href="#">Porsche Cayenne Turbo S</a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option">For Rent</span>
+                                    <h6>$218<span>/Month</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat similar blocks for each car item -->
+                </div>
+                <div class="pagination__option">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#"><span class="arrow_carrot-2right"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="path/to/jquery.js"></script> <!-- Add appropriate path -->
+<script src="path/to/owl.carousel.js"></script> <!-- Add appropriate path -->
+<script src="path/to/your-scripts.js"></script> <!-- Add your JS file -->
+<script>
+    $(document).ready(function(){
+        // Initialize Owl Carousel
+        $('.owl-carousel').owlCarousel({
+            items: 1,
+            loop: true,
+            nav: true,
+            dots: true
+        });
+
+        // Car Search
+        $('#carSearchForm').on('submit', function(e) {
+            e.preventDefault();
+            let searchTerm = $('#carSearchInput').val().toLowerCase();
+            $('.car-item').each(function() {
+                let carName = $(this).find('h5 a').text().toLowerCase();
+                if(carName.includes(searchTerm)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+
+        // Car Filter
+        $('#carFilterForm select').on('change', function() {
+            filterCars();
+        });
+
+        // Price Range Slider
+        // You need to include a library for the range slider, e.g., noUiSlider
+        // Initialize and setup the range slider here
+        // Example with noUiSlider:
+        // noUiSlider.create(document.getElementById('filter-price-range'), {
+        //     start: [0, 1000],
+        //     connect: true,
+        //     range: {
+        //         'min': 0,
+        //         'max': 1000
+        //     }
+        // }).on('update', function(values, handle) {
+        //     $('#filterAmount').val(values.join(' - '));
+        //     filterCars();
+        // });
+
+        // Reset Filter
+        $('#resetFilterBtn').on('click', function() {
+            $('#carFilterForm')[0].reset();
+            $('#carSearchInput').val('');
+            filterCars();
+        });
+
+        // Show On Page
+        $('#showOnPage').on('change', function() {
+            let itemsPerPage = parseInt($(this).val());
+            // Implement pagination logic based on itemsPerPage
+        });
+
+        // Sort By
+        $('#sortBy').on('change', function() {
+            let sortBy = $(this).val();
+            sortCars(sortBy);
+        });
+
+        // Pagination
+        $('.pagination__option a').on('click', function(e) {
+            e.preventDefault();
+            $('.pagination__option a').removeClass('active');
+            $(this).addClass('active');
+            let page = parseInt($(this).text());
+            // Implement pagination logic based on page
+        });
+
+        function filterCars() {
+            let brand = $('#brandFilter').val();
+            let model = $('#modelFilter').val();
+            let bodyStyle = $('#bodyStyleFilter').val();
+            let condition = $('#conditionFilter').val();
+            let transmission = $('#transmissionFilter').val();
+            let mileage = $('#mileageFilter').val();
+            let engine = $('#engineFilter').val();
+            let color = $('#colorFilter').val();
+            let priceRange = $('#filterAmount').val().split(' - ').map(Number);
+            $('.car-item').each(function() {
+                let car = $(this);
+                let matches = true;
+                if(brand && car.data('brand') !== brand) matches = false;
+                if(model && car.data('model') !== model) matches = false;
+                if(bodyStyle && car.data('body-style') !== bodyStyle) matches = false;
+                if(condition && car.data('condition') !== condition) matches = false;
+                if(transmission && car.data('transmission') !== transmission) matches = false;
+                if(mileage && car.data('mileage') > parseInt(mileage)) matches = false;
+                if(engine && car.data('engine') !== engine) matches = false;
+                if(color && car.data('color') !== color) matches = false;
+                if(priceRange.length === 2 && (car.data('price') < priceRange[0] || car.data('price') > priceRange[1])) matches = false;
+                if(matches) car.show(); else car.hide();
+            });
+        }
+
+        function sortCars(sortBy) {
+            let carItems = $('.car-item').toArray();
+            carItems.sort(function(a, b) {
+                let priceA = $(a).data('price');
+                let priceB = $(b).data('price');
+                if(sortBy === 'price-high') {
+                    return priceB - priceA;
+                } else if(sortBy === 'price-low') {
+                    return priceA - priceB;
+                }
+            });
+            $('#carList').html(carItems);
+        }
+    });
+</script>
+</body>
+</html>
