@@ -46,3 +46,8 @@
 .header-logo{
     width: 40px;
 }
+
+.dropdown-li :hover{
+    background-color: #b12424;
+    border-radius: 5px;
+}
